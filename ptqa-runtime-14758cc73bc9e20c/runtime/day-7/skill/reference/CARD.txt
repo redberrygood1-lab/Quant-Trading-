@@ -1,0 +1,49 @@
++------------------------------------------------------------------+
+| PART-TIME QUANT ACADEMY  -  WEEK ONE                             |
+| Sam R.  -  2026-09-03                                            |
++------------------------------------------------------------------+
+|                                                                  |
+| BUILT       Pullback Fifty                                       |
+|             AAPL 1d - Close above the 50-day average for two     |
+|             days in a row, five bars after the stock was at      |
+|             least 5% off its 20-day high.                        |
+|                                                                  |
+| TESTED      04 Jan 2010 to 29 Aug 2026 (4192 bars) - 214 trades  |
+|             costs 6 bps per side                                 |
+|             9 configurations tried                               |
+|                                                                  |
+| VERDICT     BLOCK                                                |
+|             [FAIL] PBO 71%              needs under 50%          |
+|             [FAIL] Deflated Sharpe 0.44  needs over 0.95         |
+|             [PASS] Out-of-sample 0.38 Sharpe  needs over 0.00    |
+|                                                                  |
+| AGENT       ran 11 times - 2 paper fills - I stopped it on       |
+|             2026-09-02                                           |
+|                                                                  |
+| LEARNED     that my rule only worked because I was reading the   |
+|             exit after the fact                                  |
+|                                                                  |
++------------------------------------------------------------------+
+   Paper only. A pass is not permission to trade real money.
+
+PARTNER INTAKE  -  paste this under your post
+
+  Timezone:        Europe/London
+  I can show up:   weekday evenings, 30 min
+  Week two goal:   rewrite the exit so it can't see the future
+  Verdict:         BLOCK
+  Experience:      3 years discretionary, no code
+
+--
+Layout reference for the no-Python fallback path.
+
+Card width 68 characters, ASCII only, no emoji.
+Label column is 12 characters wide, value starts at column 14.
+Gate rows come from day 5's gates[] array, in its order, with its labels,
+values and thresholds. Mark is [PASS], [FAIL] or [N/A ] from pass + ran.
+A gate that ran shows the threshold clause only; a gate that could not run
+shows its whole reason, because the reason is the point.
+Anything the day files did not contain prints as "not found" - never a guess.
+No return, Sharpe or profit figure goes on this card.
+The footer line is mandatory and never changes.
+The example member above is invented. Do not present it as a real result.

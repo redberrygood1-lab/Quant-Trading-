@@ -1,0 +1,181 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://parttimequant.com/academy/schema/strategy-spec-v1.json",
+  "title": "PTQ Academy strategy spec v1",
+  "description": "The contract written by day 3 and read by days 4, 5 and 6. Prose documentation lives in SCHEMA.md next to this file.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "spec_version", "name", "created", "source_rule", "instrument", "timeframe",
+    "direction", "entry", "exit", "stop", "sizing", "costs",
+    "vague_terms_resolved", "unresolved"
+  ],
+  "properties": {
+    "spec_version": { "const": 1 },
+    "name": { "type": "string", "minLength": 2, "maxLength": 60 },
+    "created": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+    "source_rule": { "type": "string", "minLength": 1 },
+
+    "instrument": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["symbol", "asset_class", "data_source", "currency"],
+      "properties": {
+        "symbol": { "type": "string", "minLength": 1 },
+        "asset_class": { "enum": ["equity", "etf", "fx", "crypto", "futures", "index"] },
+        "data_source": { "enum": ["auto", "csv", "tiingo", "twelvedata", "alpaca", "polygon", "yahoo", "yfinance", "stooq"] },
+        "csv_path": { "type": "string" },
+        "currency": { "type": "string", "pattern": "^[A-Z]{3}$" },
+        "second_symbol": { "type": "string", "minLength": 1 },
+        "second_csv_path": { "type": "string" }
+      },
+      "allOf": [{
+        "if": { "properties": { "data_source": { "const": "csv" } }, "required": ["data_source"] },
+        "then": { "required": ["csv_path"] }
+      }, {
+        "if": { "properties": { "data_source": { "const": "csv" } }, "required": ["data_source", "second_symbol"] },
+        "then": { "required": ["second_csv_path"] }
+      }, {
+        "if": { "required": ["second_csv_path"] },
+        "then": { "required": ["second_symbol"] }
+      }]
+    },
+
+    "timeframe": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["bar", "history_start", "session"],
+      "properties": {
+        "bar": { "enum": ["1d", "1wk", "1h", "30m", "15m", "5m", "1m"] },
+        "history_start": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+        "session": { "enum": ["regular", "24h"] }
+      }
+    },
+
+    "direction": { "enum": ["long", "short"] },
+
+    "entry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["plain_english", "combine", "conditions", "fill", "max_open_positions", "cooldown_bars"],
+      "properties": {
+        "plain_english": { "type": "string", "minLength": 1 },
+        "combine": { "enum": ["all", "any"] },
+        "conditions": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/condition" } },
+        "fill": { "enum": ["next_bar_open", "same_bar_close"] },
+        "max_open_positions": { "type": "integer", "minimum": 1 },
+        "cooldown_bars": { "type": "integer", "minimum": 0 }
+      }
+    },
+
+    "exit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["plain_english", "combine", "conditions", "time_stop_bars", "target", "fill"],
+      "properties": {
+        "plain_english": { "type": "string", "minLength": 1 },
+        "combine": { "enum": ["all", "any"] },
+        "conditions": { "type": "array", "minItems": 0, "items": { "$ref": "#/$defs/condition" } },
+        "time_stop_bars": { "type": ["integer", "null"], "minimum": 1 },
+        "target": {
+          "oneOf": [
+            { "type": "null" },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["type", "value"],
+              "properties": {
+                "type": { "enum": ["atr_multiple", "percent", "r_multiple"] },
+                "value": { "type": "number", "exclusiveMinimum": 0 }
+              }
+            }
+          ]
+        },
+        "fill": { "enum": ["next_bar_open", "same_bar_close"] }
+      }
+    },
+
+    "stop": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "value", "atr_period", "trailing", "intrabar"],
+      "properties": {
+        "type": { "enum": ["atr_multiple", "percent", "swing", "none"] },
+        "value": { "type": ["number", "null"], "exclusiveMinimum": 0 },
+        "atr_period": { "type": ["integer", "null"], "minimum": 2 },
+        "trailing": { "type": "boolean" },
+        "intrabar": { "type": "boolean" }
+      }
+    },
+
+    "sizing": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["method", "risk_per_trade_pct", "fraction_pct", "starting_equity", "max_risk_open_pct"],
+      "properties": {
+        "method": { "enum": ["risk_percent", "fixed_fraction"] },
+        "risk_per_trade_pct": { "type": ["number", "null"], "exclusiveMinimum": 0, "maximum": 100 },
+        "fraction_pct": { "type": ["number", "null"], "exclusiveMinimum": 0, "maximum": 100 },
+        "starting_equity": { "type": "number", "exclusiveMinimum": 0 },
+        "max_risk_open_pct": { "type": "number", "exclusiveMinimum": 0 },
+        "confirm_over_cap": { "type": "boolean" }
+      }
+    },
+
+    "costs": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["per_side_bps"],
+      "properties": { "per_side_bps": { "type": "number", "minimum": 1, "description": "Floor is 6, or 1 when instrument.asset_class is fx. validate_spec.py enforces the per-market floor." } }
+    },
+
+    "vague_terms_resolved": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["term", "became"],
+        "properties": {
+          "term": { "type": "string", "minLength": 1 },
+          "became": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+
+    "unresolved": { "type": "array", "items": { "type": "string", "minLength": 1 } }
+  },
+
+  "$defs": {
+    "operand": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["series", "params", "offset"],
+      "properties": {
+        "series": {
+          "enum": [
+            "open", "high", "low", "close", "volume", "constant",
+            "sma", "ema", "rsi", "atr", "stdev", "highest", "lowest",
+            "pct_change", "volume_sma", "bb_upper", "bb_lower", "adx", "vwap",
+            "day_of_week", "pct_below_highest",
+            "day_level", "day_position", "hour_of_day", "smt_divergence", "custom"
+          ]
+        },
+        "params": { "type": "object" },
+        "offset": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "condition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "plain_english", "left", "op", "right", "persist_bars"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[ex][0-9]+$" },
+        "plain_english": { "type": "string", "minLength": 1 },
+        "left": { "$ref": "#/$defs/operand" },
+        "op": { "enum": [">", ">=", "<", "<=", "==", "crosses_above", "crosses_below"] },
+        "right": { "$ref": "#/$defs/operand" },
+        "persist_bars": { "type": "integer", "minimum": 1 }
+      }
+    }
+  }
+}

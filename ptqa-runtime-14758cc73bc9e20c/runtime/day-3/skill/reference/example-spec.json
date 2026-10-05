@@ -1,0 +1,82 @@
+{
+  "spec_version": 1,
+  "name": "Pullback Fifty",
+  "created": "2026-09-03",
+  "source_rule": "I buy when the stock is showing strength after a pullback and I get out when it looks tired. I don't size crazy.",
+  "instrument": {
+    "symbol": "AAPL",
+    "asset_class": "equity",
+    "data_source": "auto",
+    "currency": "USD"
+  },
+  "timeframe": {
+    "bar": "1d",
+    "history_start": "2010-01-01",
+    "session": "regular"
+  },
+  "direction": "long",
+  "entry": {
+    "plain_english": "Close above the 50-day average for two days in a row, five bars after the stock was at least 5% off its 20-day high.",
+    "combine": "all",
+    "conditions": [
+      {
+        "id": "e1",
+        "plain_english": "close is above the 50-day simple moving average",
+        "left": { "series": "close", "params": {}, "offset": 0 },
+        "op": ">",
+        "right": { "series": "sma", "params": { "period": 50 }, "offset": 0 },
+        "persist_bars": 2
+      },
+      {
+        "id": "e2",
+        "plain_english": "five bars ago the close was 5% or more below its 20-bar high",
+        "left": { "series": "pct_below_highest", "params": { "period": 20, "field": "close" }, "offset": 5 },
+        "op": ">=",
+        "right": { "series": "constant", "params": { "value": 5 }, "offset": 0 },
+        "persist_bars": 1
+      }
+    ],
+    "fill": "next_bar_open",
+    "max_open_positions": 1,
+    "cooldown_bars": 0
+  },
+  "exit": {
+    "plain_english": "Close back below the 50-day average, or 20 bars in the trade, whichever comes first.",
+    "combine": "any",
+    "conditions": [
+      {
+        "id": "x1",
+        "plain_english": "close drops back below the 50-day simple moving average",
+        "left": { "series": "close", "params": {}, "offset": 0 },
+        "op": "<",
+        "right": { "series": "sma", "params": { "period": 50 }, "offset": 0 },
+        "persist_bars": 1
+      }
+    ],
+    "time_stop_bars": 20,
+    "target": null,
+    "fill": "next_bar_open"
+  },
+  "stop": {
+    "type": "atr_multiple",
+    "value": 2.0,
+    "atr_period": 14,
+    "trailing": false,
+    "intrabar": true
+  },
+  "sizing": {
+    "method": "risk_percent",
+    "risk_per_trade_pct": 1.0,
+    "fraction_pct": null,
+    "starting_equity": 100000,
+    "max_risk_open_pct": 1.0
+  },
+  "costs": { "per_side_bps": 6.0 },
+  "vague_terms_resolved": [
+    { "term": "showing strength", "became": "close > SMA(50) for 2 consecutive bars" },
+    { "term": "after a pullback", "became": "5 bars ago, close was >= 5% below the 20-bar high close" },
+    { "term": "looks tired", "became": "close < SMA(50), or 20 bars in the trade" },
+    { "term": "don't size crazy", "became": "2.0 x ATR(14) stop, risking 1.00% of the account per trade" }
+  ],
+  "unresolved": []
+}

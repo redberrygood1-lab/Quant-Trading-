@@ -1,0 +1,7 @@
+{
+  "format": "ptqa-setup-v1",
+  "bundle_sha256": "14758cc73bc9e20c434ceca26bcff84f1864fe93861037e45dc529664d1aea15",
+  "runtime": "/home/user/Quant-Trading-/ptqa-runtime-14758cc73bc9e20c/runtime",
+  "workspace": "/home/user/Quant-Trading-/day-1-recording-work",
+  "academy_home": "/home/user/Quant-Trading-/ptqa-local-environment"
+}

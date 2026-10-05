@@ -1,0 +1,39 @@
+{
+  "schema": "ptqa/setup/1",
+  "app_route": "claude",
+  "machine": "Linux",
+  "rows": [
+    {
+      "name": "Python",
+      "state": "PASS",
+      "detail": "3.11.15"
+    },
+    {
+      "name": "Saving work",
+      "state": "PASS",
+      "detail": "Write and read-back succeeded"
+    },
+    {
+      "name": "numpy",
+      "state": "PASS",
+      "detail": "2.4.6"
+    },
+    {
+      "name": "pandas",
+      "state": "PASS",
+      "detail": "3.0.6"
+    },
+    {
+      "name": "Pillow",
+      "state": "PASS",
+      "detail": "12.3.0"
+    },
+    {
+      "name": "Price data",
+      "state": "WARN",
+      "detail": "A separate real data probe is required"
+    }
+  ],
+  "status": "PENDING DATA",
+  "note": "App route is the requested route, not an automatic verification of the desktop UI."
+}
