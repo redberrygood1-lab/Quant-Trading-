@@ -30,10 +30,10 @@
     },
     {
       "name": "Price data",
-      "state": "WARN",
-      "detail": "A separate real data probe is required"
+      "state": "PASS",
+      "detail": "Sample request succeeded"
     }
   ],
-  "status": "PENDING DATA",
+  "status": "CHECKED",
   "note": "App route is the requested route, not an automatic verification of the desktop UI."
 }
