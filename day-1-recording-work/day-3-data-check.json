@@ -1,0 +1,16 @@
+{
+  "schema": "ptqa/day-3-data-check/1",
+  "checked_at": "2026-10-06T18:33:34.715942+00:00",
+  "strategy": "Trend Sniper",
+  "symbol": "SPY",
+  "bar": "1d",
+  "history_start_requested": "2000-01-01",
+  "tool": "runtime/day-3/skill/scripts/ptq_data.py probe SPY 1d 2000-01-01",
+  "exit_status": 0,
+  "passed": true,
+  "output": [
+    "6729 bars  2000-01-03 -> 2026-10-05  last close 774.83",
+    "source: Tiingo 1d bars",
+    "adjusted for: splits and dividends"
+  ]
+}

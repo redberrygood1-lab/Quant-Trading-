@@ -1,0 +1,12 @@
+{
+  "schema": "ptqa/data-probe/1",
+  "checked_at": "2026-10-06T18:33:33.504011+00:00",
+  "requested_source": "tiingo",
+  "symbol": "SPY",
+  "passed": true,
+  "provider": "tiingo",
+  "bars": 549,
+  "note": "Sample request only; the strategy's history requirements are checked separately.",
+  "start": "2024-07-29T00:00:00+00:00",
+  "end": "2026-10-05T00:00:00+00:00"
+}

@@ -1,0 +1,75 @@
+{
+  "spec_version": 1,
+  "name": "Trend Sniper",
+  "created": "2026-10-06",
+  "source_rule": "Not decided yet",
+  "instrument": {
+    "symbol": "SPY",
+    "asset_class": "etf",
+    "data_source": "auto",
+    "currency": "USD"
+  },
+  "timeframe": {
+    "bar": "1d",
+    "history_start": "2000-01-01",
+    "session": "regular"
+  },
+  "direction": "long",
+  "entry": {
+    "plain_english": "Buy SPY at the next day's open once it has closed above its 50-day average two days in a row.",
+    "combine": "all",
+    "conditions": [
+      {
+        "id": "e1",
+        "plain_english": "SPY closes above its 50-day simple moving average for 2 days in a row",
+        "left": { "series": "close", "params": {}, "offset": 0 },
+        "op": ">",
+        "right": { "series": "sma", "params": { "period": 50 }, "offset": 0 },
+        "persist_bars": 2
+      }
+    ],
+    "fill": "next_bar_open",
+    "max_open_positions": 1,
+    "cooldown_bars": 0
+  },
+  "exit": {
+    "plain_english": "Sell at the next day's open after SPY closes back below its 50-day average.",
+    "combine": "any",
+    "conditions": [
+      {
+        "id": "x1",
+        "plain_english": "SPY closes below its 50-day simple moving average",
+        "left": { "series": "close", "params": {}, "offset": 0 },
+        "op": "<",
+        "right": { "series": "sma", "params": { "period": 50 }, "offset": 0 },
+        "persist_bars": 1
+      }
+    ],
+    "time_stop_bars": null,
+    "target": null,
+    "fill": "next_bar_open"
+  },
+  "stop": {
+    "type": "percent",
+    "value": 3.0,
+    "atr_period": null,
+    "trailing": false,
+    "intrabar": true
+  },
+  "sizing": {
+    "method": "fixed_fraction",
+    "risk_per_trade_pct": null,
+    "fraction_pct": 20.0,
+    "starting_equity": 100,
+    "max_risk_open_pct": 1.0
+  },
+  "costs": { "per_side_bps": 6.0 },
+  "vague_terms_resolved": [
+    { "term": "Not decided yet (idea)", "became": "member chose the labelled example: buy SPY when its price rises above its 50-day average" },
+    { "term": "rises above its 50-day average", "became": "close > SMA(50) for 2 consecutive daily bars, buy at next day's open" },
+    { "term": "close in profit: Not decided yet", "became": "close < SMA(50), sell at next day's open" },
+    { "term": "close at a loss: Not decided yet", "became": "fixed 3% stop below entry, checked intrabar" },
+    { "term": "20 dollars", "became": "20% of a $100 imaginary account per trade (about 0.6% of the account at risk at the stop)" }
+  ],
+  "unresolved": []
+}
