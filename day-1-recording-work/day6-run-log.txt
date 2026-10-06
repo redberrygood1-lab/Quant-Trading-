@@ -26,3 +26,19 @@
 2026-10-06 21:22:57  CYCLE 5    DATA        6730 SPY 1d bars, newest 2026-10-06 close 779.09  [Tiingo 1d bars (cached 60s ago)]
 2026-10-06 21:22:57  CYCLE 5    SIGNAL      exit  x1  no  close 774.83 < sma(50) 762.9852
 2026-10-06 21:22:57  CYCLE 5    HELD-NOOP   holding long 0.02570198 SPY, 0 bar(s) in. Nothing triggered. Nothing to do.
+2026-10-06 21:23:13  CYCLE 6    DATA        6730 SPY 1d bars, newest 2026-10-06 close 779.09  [Tiingo 1d bars (cached 75s ago)]
+2026-10-06 21:23:13  CYCLE 6    SIGNAL      exit  x1  no  close 774.83 < sma(50) 762.9852
+2026-10-06 21:23:13  CYCLE 6    HELD-NOOP   holding long 0.02570198 SPY, 0 bar(s) in. Nothing triggered. Nothing to do.
+2026-10-06 21:23:28  CYCLE 7    DATA        6730 SPY 1d bars, newest 2026-10-06 close 779.09  [Tiingo 1d bars (cached 1m ago)]
+2026-10-06 21:23:28  CYCLE 7    SIGNAL      exit  x1  no  close 774.83 < sma(50) 762.9852
+2026-10-06 21:23:28  CYCLE 7    HELD-NOOP   holding long 0.02570198 SPY, 0 bar(s) in. Nothing triggered. Nothing to do.
+2026-10-06 21:23:43  CYCLE 8    DATA        6730 SPY 1d bars, newest 2026-10-06 close 779.09  [Tiingo 1d bars (cached 1m ago)]
+2026-10-06 21:23:43  CYCLE 8    SIGNAL      exit  x1  no  close 774.83 < sma(50) 762.9852
+2026-10-06 21:23:43  CYCLE 8    HELD-NOOP   holding long 0.02570198 SPY, 0 bar(s) in. Nothing triggered. Nothing to do.
+2026-10-06 21:23:58  CYCLE 9    EXPIRED     consent expired at 2026-10-06 21:23:57. Disarmed. Nothing filled.
+2026-10-06 21:23:58           - LOOP        consent expired. Background loop exiting.
+2026-10-06 21:25:00           - KILL        *** KILL SWITCH ENGAGED by root. Reason: member typed stop in chat ***
+2026-10-06 21:25:00           - KILL        everything is halted. No cycle will evaluate anything and no fill can be written until you deliberately run 'release'.
+2026-10-06 21:25:00           - KILL        no background loop was running. The switch is engaged anyway.
+2026-10-06 21:25:00           - KILL        one open SIMULATED paper position is left on the books: long 0.02570198 SPY from 778.6169. It is not real, nothing is at risk, and no further cycle will touch it.
+2026-10-06 21:25:00  CYCLE 10   SKIPPED     kill switch engaged (member typed stop in chat). Nothing evaluated, nothing filled.
