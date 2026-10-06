@@ -1,0 +1,71 @@
+
+  ==================================================================
+  DAY 4 BACKTEST  ·  TREND SNIPER
+  ==================================================================
+
+  THE RULE
+    In:  Buy SPY at the next day's open once it has closed above
+         its 50-day average two days in a row.
+    Out: Sell at the next day's open after SPY closes back below
+         its 50-day average.
+
+  Direction                     long
+  Stop                          3% from entry, checked intrabar
+  Target                        none
+  Size                          20% of equity per position
+  Fills                         in next_bar_open, out next_bar_open
+
+  Asset                         SPY  (etf, USD)
+  Timeframe                     1d
+  Bars tested                   6,729  (warm-up 52)
+  Period                        03 Jan 2000 to 05 Oct 2026
+  Data                          Tiingo 1d bars (cached 2h ago)
+  Prices adjusted for           splits and dividends
+  Costs                         6bps per side, both sides charged
+  Annualised on                 252 bars/year (252 sessions, 6.5-hour equity day)
+  ATR                           mean of true range, as in the PTQ engine
+
+  ------------------------------------------------------------------
+  RESULT
+  ------------------------------------------------------------------
+  Net return                    +20.9%
+  Sharpe                        0.34
+  Sortino                       0.35
+  Max drawdown                  7.1%  (mark-to-market)
+  Max drawdown, exits only      6.1%
+  Trades                        183
+  Win rate                      33.3%
+  Profit factor                 1.52
+  Cost drag                     4.5% of starting equity
+
+  ------------------------------------------------------------------
+  CONTEXT
+  ------------------------------------------------------------------
+  Average win / loss            +1 / -0
+  Best / worst trade            +4 / -1
+  Longest run of losers         14 in a row
+  Time holding a position       63.2% of the bars
+  Same period, just holding     +753.0%
+  (money figures in USD, on 100 starting equity)
+
+  One position is still open at the end of the data. It has no exit
+  and no booked profit or loss. It is marked at the last close, not
+  given an invented result.
+
+  ------------------------------------------------------------------
+  WHAT THIS NUMBER IS
+  ------------------------------------------------------------------
+  A rule measured against prices that have already happened.
+  Fitted to the past. The past is the one thing you cannot trade.
+
+  What it does NOT tell you yet:
+    · whether the result is the rule or the luck of one sample
+    · whether it holds on data the rule has never seen
+    · whether it survives being one of many settings you could
+      have picked
+
+  Day 5 runs those three checks. Do not act on this number, do not
+  change your rule because of it, and do not call it a win.
+  Post it. Sit with it. Find out tomorrow.
+
+  ==================================================================
