@@ -1,0 +1,120 @@
+{
+  "arm": {
+    "armed_at": "2026-10-06T21:21:57+00:00",
+    "armed_by": "root",
+    "day5_headline": "FAIL",
+    "expires_at": "2026-10-06T21:23:57+00:00",
+    "mode": "paper",
+    "name": "Trend Sniper",
+    "scope": {
+      "max_notional": 100.0,
+      "max_open_positions": 1,
+      "symbols": [
+        "SPY"
+      ]
+    },
+    "spec_fingerprint": "6d282cc6039645f949d6209e5552596729ffb1b297dec33c8931d159e0e509da",
+    "spec_path": "/home/user/Quant-Trading-/day-1-recording-work/strategy.json",
+    "symbol": "SPY"
+  },
+  "broker_connected": false,
+  "cycles": [
+    {
+      "at": "2026-10-06T21:21:57+00:00",
+      "detail": "BUY 0.02570198 SPY at 778.6169 (simulated)",
+      "n": 1,
+      "outcome": "opened"
+    },
+    {
+      "at": "2026-10-06T21:22:12+00:00",
+      "detail": "nothing triggered",
+      "n": 2,
+      "outcome": "held-noop"
+    },
+    {
+      "at": "2026-10-06T21:22:27+00:00",
+      "detail": "nothing triggered",
+      "n": 3,
+      "outcome": "held-noop"
+    },
+    {
+      "at": "2026-10-06T21:22:42+00:00",
+      "detail": "nothing triggered",
+      "n": 4,
+      "outcome": "held-noop"
+    },
+    {
+      "at": "2026-10-06T21:22:57+00:00",
+      "detail": "nothing triggered",
+      "n": 5,
+      "outcome": "held-noop"
+    }
+  ],
+  "day": 6,
+  "fills": [
+    {
+      "at": "2026-10-06T21:21:57+00:00",
+      "cost_bps_per_side": 6.0,
+      "cycle": 1,
+      "event": "open",
+      "fill_bar": "2026-10-06",
+      "fill_price": 778.6168899999999,
+      "fill_rule": "next_bar_open",
+      "note": "SIMULATED paper fill. No order was sent to any venue.",
+      "price_before_costs": 778.15,
+      "qty": 0.02570198,
+      "side": "long",
+      "signal_bar": "2026-10-05",
+      "stop_price": 755.2583832999999,
+      "symbol": "SPY"
+    }
+  ],
+  "honesty": "Every fill recorded here is simulated arithmetic on a historical price bar. No broker was connected, no order was sent, no money moved. Nothing here is a performance claim.",
+  "kill_switch": {
+    "engaged": false,
+    "engaged_at": null,
+    "engaged_by": null,
+    "reason": null
+  },
+  "last_exit_bar": null,
+  "live_trading": false,
+  "loop": {
+    "cycle_count": 5,
+    "cycles_after_kill": 0,
+    "every_seconds": 15,
+    "kind": "background-process",
+    "last_cycle_at": "2026-10-06T21:22:57+00:00",
+    "pid": 445,
+    "running": true,
+    "started_at": "2026-10-06T21:21:57+00:00",
+    "stopped_at": null
+  },
+  "paper_only": true,
+  "paths": {
+    "human_log": "/home/user/Quant-Trading-/day-1-recording-work/day6-run-log.txt",
+    "journal": "/home/user/Quant-Trading-/day-1-recording-work/run-log.jsonl",
+    "state": "/home/user/Quant-Trading-/day-1-recording-work/run-state.json"
+  },
+  "position": {
+    "bars_held": 0,
+    "direction": "long",
+    "entry_bar": "2026-10-06",
+    "entry_price": 778.6168899999999,
+    "entry_price_before_costs": 778.15,
+    "opened_at": "2026-10-06T21:21:57+00:00",
+    "qty": 0.02570198,
+    "signal_bar": "2026-10-05",
+    "simulated": true,
+    "stop_price": 755.2583832999999,
+    "symbol": "SPY"
+  },
+  "proved": {
+    "cycles_before_kill": 5,
+    "ran_on_a_schedule": true,
+    "refused_after_kill": false,
+    "stopped_by_member": false
+  },
+  "schema": "ptq-academy/day6-run-state/1",
+  "updated_at": "2026-10-06T21:22:57+00:00",
+  "version": 1
+}

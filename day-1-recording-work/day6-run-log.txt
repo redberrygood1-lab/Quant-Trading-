@@ -1,0 +1,28 @@
+2026-10-06 21:21:57           - ARMED       Trend Sniper on SPY, 1d bars
+2026-10-06 21:21:57           - ARMED       mode PAPER. This script has no broker code and reads no keys.
+2026-10-06 21:21:57           - ARMED       armed by root. Consent expires 2026-10-06 21:23:57.
+2026-10-06 21:21:57           - ARMED       cap 100 notional, one position at a time, costs 6 bps per side
+2026-10-06 21:21:57           - ARMED       spec fingerprint 6d282cc60396. Change the spec and the loop halts itself.
+2026-10-06 21:21:57           - ARMED       everything it does is written to /home/user/Quant-Trading-/day-1-recording-work/day6-run-log.txt
+2026-10-06 21:21:57           - PREFLIGHT   6730 bars, newest 2026-10-06 close 779.09  [Tiingo 1d bars]
+2026-10-06 21:21:57           - NOTE        day 5 said this rule FAILED its checks. Running it on paper is still the drill. It is not a green light.
+2026-10-06 21:21:57           - START       background loop started, pid 445, one cycle every 15s. PAPER ONLY.
+2026-10-06 21:21:57           - LOOP        background loop awake, pid 445.
+2026-10-06 21:21:57  CYCLE 1    DATA        6730 SPY 1d bars, newest 2026-10-06 close 779.09  [Tiingo 1d bars (cached 0s ago)]
+2026-10-06 21:21:57  CYCLE 1    SIGNAL      entry e1  yes close 774.83 > sma(50) 762.9852  (for 2 bars)
+2026-10-06 21:21:57  CYCLE 1    SIZE        20% of 100 paper equity = 20 budget at 778.15  ->  0.02570198 unit(s)
+2026-10-06 21:21:57  CYCLE 1    RISK        ok. notional 20 within cap 100, newest bar 2026-10-06 is 0 day(s) old
+2026-10-06 21:21:57  CYCLE 1    FILL        BUY 0.02570198 SPY at 778.6169 (next bar's open, 6 bps per side applied)   *** SIMULATED PAPER FILL. No broker, no money, nothing was sent anywhere. ***
+2026-10-06 21:21:57  CYCLE 1    STOP        stop sits at 755.2584 (fixed)
+2026-10-06 21:22:12  CYCLE 2    DATA        6730 SPY 1d bars, newest 2026-10-06 close 779.09  [Tiingo 1d bars (cached 15s ago)]
+2026-10-06 21:22:12  CYCLE 2    SIGNAL      exit  x1  no  close 774.83 < sma(50) 762.9852
+2026-10-06 21:22:12  CYCLE 2    HELD-NOOP   holding long 0.02570198 SPY, 0 bar(s) in. Nothing triggered. Nothing to do.
+2026-10-06 21:22:27  CYCLE 3    DATA        6730 SPY 1d bars, newest 2026-10-06 close 779.09  [Tiingo 1d bars (cached 30s ago)]
+2026-10-06 21:22:27  CYCLE 3    SIGNAL      exit  x1  no  close 774.83 < sma(50) 762.9852
+2026-10-06 21:22:27  CYCLE 3    HELD-NOOP   holding long 0.02570198 SPY, 0 bar(s) in. Nothing triggered. Nothing to do.
+2026-10-06 21:22:42  CYCLE 4    DATA        6730 SPY 1d bars, newest 2026-10-06 close 779.09  [Tiingo 1d bars (cached 45s ago)]
+2026-10-06 21:22:42  CYCLE 4    SIGNAL      exit  x1  no  close 774.83 < sma(50) 762.9852
+2026-10-06 21:22:42  CYCLE 4    HELD-NOOP   holding long 0.02570198 SPY, 0 bar(s) in. Nothing triggered. Nothing to do.
+2026-10-06 21:22:57  CYCLE 5    DATA        6730 SPY 1d bars, newest 2026-10-06 close 779.09  [Tiingo 1d bars (cached 60s ago)]
+2026-10-06 21:22:57  CYCLE 5    SIGNAL      exit  x1  no  close 774.83 < sma(50) 762.9852
+2026-10-06 21:22:57  CYCLE 5    HELD-NOOP   holding long 0.02570198 SPY, 0 bar(s) in. Nothing triggered. Nothing to do.

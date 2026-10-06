@@ -1,0 +1,3 @@
+{"at": "2026-10-06T21:21:57+00:00", "event": "armed", "expires_at": "2026-10-06T21:23:57+00:00", "live": false, "mode": "paper", "paper": true, "simulated": true, "strategy": "Trend Sniper"}
+{"at": "2026-10-06T21:21:57+00:00", "event": "loop-start", "every_seconds": 15, "live": false, "paper": true, "pid": 445, "simulated": true}
+{"at": "2026-10-06T21:21:57+00:00", "cost_bps_per_side": 6.0, "cycle": 1, "event": "open", "fill_bar": "2026-10-06", "fill_price": 778.6168899999999, "fill_rule": "next_bar_open", "live": false, "note": "SIMULATED paper fill. No order was sent to any venue.", "paper": true, "price_before_costs": 778.15, "qty": 0.02570198, "side": "long", "signal_bar": "2026-10-05", "simulated": true, "stop_price": 755.2583832999999, "symbol": "SPY"}
