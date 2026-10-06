@@ -96,6 +96,30 @@
       "detail": "nothing triggered",
       "n": 13,
       "outcome": "held-noop"
+    },
+    {
+      "at": "2026-10-06T22:02:39+00:00",
+      "detail": "nothing triggered",
+      "n": 14,
+      "outcome": "held-noop"
+    },
+    {
+      "at": "2026-10-06T22:02:54+00:00",
+      "detail": "nothing triggered",
+      "n": 15,
+      "outcome": "held-noop"
+    },
+    {
+      "at": "2026-10-06T22:03:09+00:00",
+      "detail": "nothing triggered",
+      "n": 16,
+      "outcome": "held-noop"
+    },
+    {
+      "at": "2026-10-06T22:03:12+00:00",
+      "detail": "kill switch engaged",
+      "n": 17,
+      "outcome": "skipped"
     }
   ],
   "day": 6,
@@ -135,23 +159,23 @@
   ],
   "honesty": "Every fill recorded here is simulated arithmetic on a historical price bar. No broker was connected, no order was sent, no money moved. Nothing here is a performance claim.",
   "kill_switch": {
-    "engaged": false,
-    "engaged_at": null,
-    "engaged_by": null,
-    "reason": null
+    "engaged": true,
+    "engaged_at": "2026-10-06T22:03:12+00:00",
+    "engaged_by": "root",
+    "reason": "member typed stop in chat"
   },
   "last_exit_bar": null,
   "live_trading": false,
   "loop": {
-    "cycle_count": 13,
-    "cycles_after_kill": 0,
+    "cycle_count": 17,
+    "cycles_after_kill": 1,
     "every_seconds": 15,
     "kind": "background-process",
-    "last_cycle_at": "2026-10-06T22:02:24+00:00",
-    "pid": 598,
-    "running": true,
+    "last_cycle_at": "2026-10-06T22:03:12+00:00",
+    "pid": null,
+    "running": false,
     "started_at": "2026-10-06T22:01:54+00:00",
-    "stopped_at": null
+    "stopped_at": "2026-10-06T22:03:12+00:00"
   },
   "paper_only": true,
   "paths": {
@@ -173,12 +197,12 @@
     "symbol": "SPY"
   },
   "proved": {
-    "cycles_before_kill": 12,
+    "cycles_before_kill": 15,
     "ran_on_a_schedule": true,
-    "refused_after_kill": false,
-    "stopped_by_member": false
+    "refused_after_kill": true,
+    "stopped_by_member": true
   },
   "schema": "ptq-academy/day6-run-state/1",
-  "updated_at": "2026-10-06T22:02:24+00:00",
+  "updated_at": "2026-10-06T22:03:12+00:00",
   "version": 1
 }

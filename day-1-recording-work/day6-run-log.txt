@@ -65,3 +65,17 @@
 2026-10-06 22:02:24  CYCLE 13   DATA        6730 SPY 1d bars, newest 2026-10-06 close 779.09  [Tiingo 1d bars (cached 30s ago)]
 2026-10-06 22:02:24  CYCLE 13   SIGNAL      exit  x1  no  close 774.83 < sma(50) 762.9852
 2026-10-06 22:02:24  CYCLE 13   HELD-NOOP   holding long 0.10280794 SPY, 0 bar(s) in. Nothing triggered. Nothing to do.
+2026-10-06 22:02:39  CYCLE 14   DATA        6730 SPY 1d bars, newest 2026-10-06 close 779.09  [Tiingo 1d bars (cached 45s ago)]
+2026-10-06 22:02:39  CYCLE 14   SIGNAL      exit  x1  no  close 774.83 < sma(50) 762.9852
+2026-10-06 22:02:39  CYCLE 14   HELD-NOOP   holding long 0.10280794 SPY, 0 bar(s) in. Nothing triggered. Nothing to do.
+2026-10-06 22:02:54  CYCLE 15   DATA        6730 SPY 1d bars, newest 2026-10-06 close 779.09  [Tiingo 1d bars (cached 60s ago)]
+2026-10-06 22:02:54  CYCLE 15   SIGNAL      exit  x1  no  close 774.83 < sma(50) 762.9852
+2026-10-06 22:02:54  CYCLE 15   HELD-NOOP   holding long 0.10280794 SPY, 0 bar(s) in. Nothing triggered. Nothing to do.
+2026-10-06 22:03:09  CYCLE 16   DATA        6730 SPY 1d bars, newest 2026-10-06 close 779.09  [Tiingo 1d bars (cached 75s ago)]
+2026-10-06 22:03:09  CYCLE 16   SIGNAL      exit  x1  no  close 774.83 < sma(50) 762.9852
+2026-10-06 22:03:09  CYCLE 16   HELD-NOOP   holding long 0.10280794 SPY, 0 bar(s) in. Nothing triggered. Nothing to do.
+2026-10-06 22:03:12           - KILL        *** KILL SWITCH ENGAGED by root. Reason: member typed stop in chat ***
+2026-10-06 22:03:12           - KILL        everything is halted. No cycle will evaluate anything and no fill can be written until you deliberately run 'release'.
+2026-10-06 22:03:12           - KILL        background loop pid 598 stopped.
+2026-10-06 22:03:12           - KILL        one open SIMULATED paper position is left on the books: long 0.10280794 SPY from 778.6169. It is not real, nothing is at risk, and no further cycle will touch it.
+2026-10-06 22:03:12  CYCLE 17   SKIPPED     kill switch engaged (member typed stop in chat). Nothing evaluated, nothing filled.
