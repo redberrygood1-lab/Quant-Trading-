@@ -42,3 +42,26 @@
 2026-10-06 21:25:00           - KILL        no background loop was running. The switch is engaged anyway.
 2026-10-06 21:25:00           - KILL        one open SIMULATED paper position is left on the books: long 0.02570198 SPY from 778.6169. It is not real, nothing is at risk, and no further cycle will touch it.
 2026-10-06 21:25:00  CYCLE 10   SKIPPED     kill switch engaged (member typed stop in chat). Nothing evaluated, nothing filled.
+2026-10-06 22:01:53           - RELEASE     kill switch released by root. Nothing has restarted on its own. Run 'start' if you want the loop back.
+2026-10-06 22:01:54           - ARMED       Trend Sniper on SPY, 1d bars
+2026-10-06 22:01:54           - ARMED       mode PAPER. This script has no broker code and reads no keys.
+2026-10-06 22:01:54           - ARMED       armed by root. Consent expires 2026-10-06 22:03:54.
+2026-10-06 22:01:54           - ARMED       cap 100 notional, one position at a time, costs 6 bps per side
+2026-10-06 22:01:54           - ARMED       spec fingerprint b82d54b4d8a3. Change the spec and the loop halts itself.
+2026-10-06 22:01:54           - ARMED       everything it does is written to /home/user/Quant-Trading-/day-1-recording-work/day6-run-log.txt
+2026-10-06 22:01:54           - PREFLIGHT   6730 bars, newest 2026-10-06 close 779.09  [Tiingo 1d bars]
+2026-10-06 22:01:54           - NOTE        day 5 said this rule FAILED its checks. Running it on paper is still the drill. It is not a green light.
+2026-10-06 22:01:54           - START       background loop started, pid 598, one cycle every 15s. PAPER ONLY.
+2026-10-06 22:01:54           - LOOP        background loop awake, pid 598.
+2026-10-06 22:01:54  CYCLE 11   DATA        6730 SPY 1d bars, newest 2026-10-06 close 779.09  [Tiingo 1d bars (cached 0s ago)]
+2026-10-06 22:01:54  CYCLE 11   SIGNAL      entry e1  yes close 774.83 > sma(50) 762.9852  (for 2 bars)
+2026-10-06 22:01:54  CYCLE 11   SIZE        80% of 100 paper equity = 80 budget at 778.15  ->  0.10280794 unit(s)
+2026-10-06 22:01:54  CYCLE 11   RISK        ok. notional 80 within cap 100, newest bar 2026-10-06 is 0 day(s) old
+2026-10-06 22:01:54  CYCLE 11   FILL        BUY 0.10280794 SPY at 778.6169 (next bar's open, 6 bps per side applied)   *** SIMULATED PAPER FILL. No broker, no money, nothing was sent anywhere. ***
+2026-10-06 22:01:54  CYCLE 11   STOP        stop sits at 755.2584 (fixed)
+2026-10-06 22:02:09  CYCLE 12   DATA        6730 SPY 1d bars, newest 2026-10-06 close 779.09  [Tiingo 1d bars (cached 15s ago)]
+2026-10-06 22:02:09  CYCLE 12   SIGNAL      exit  x1  no  close 774.83 < sma(50) 762.9852
+2026-10-06 22:02:09  CYCLE 12   HELD-NOOP   holding long 0.10280794 SPY, 0 bar(s) in. Nothing triggered. Nothing to do.
+2026-10-06 22:02:24  CYCLE 13   DATA        6730 SPY 1d bars, newest 2026-10-06 close 779.09  [Tiingo 1d bars (cached 30s ago)]
+2026-10-06 22:02:24  CYCLE 13   SIGNAL      exit  x1  no  close 774.83 < sma(50) 762.9852
+2026-10-06 22:02:24  CYCLE 13   HELD-NOOP   holding long 0.10280794 SPY, 0 bar(s) in. Nothing triggered. Nothing to do.
