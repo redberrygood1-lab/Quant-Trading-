@@ -16,17 +16,13 @@
 │               1. close < SMA(50)                                  │
 ├───────────────────────────────────────────────────────────────────┤
 │  STOP         3.0% below entry, fixed, checked intrabar           │
-│  SIZING       80.00% of account into each position                │
+│  SIZING       20.00% of account into each position                │
 │               max 1 position(s) open, max 1.00% risk on at once   │
 │  COSTS        6.0 bps per side                                    │
 ├───────────────────────────────────────────────────────────────────┤
 │  TERMS PINNED 5                                                   │
 │  UNRESOLVED   0                                                   │
 │  STATUS       CHECKED, not yet backtested                         │
-├───────────────────────────────────────────────────────────────────┤
-│  WARNINGS. Read these before day 4:                               │
-│               - Risk: about 2.4% of the account lost per          │
-│                  stopped-out trade, above 2%                      │
 └───────────────────────────────────────────────────────────────────┘
 ```
 

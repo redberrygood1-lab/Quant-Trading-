@@ -12,14 +12,14 @@
   Direction                     long
   Stop                          3% from entry, checked intrabar
   Target                        none
-  Size                          80% of equity per position
+  Size                          20% of equity per position
   Fills                         in next_bar_open, out next_bar_open
 
   Asset                         SPY  (etf, USD)
   Timeframe                     1d
-  Bars tested                   6,730  (warm-up 52)
-  Period                        03 Jan 2000 to 06 Oct 2026
-  Data                          Tiingo 1d bars (cached 34m ago)
+  Bars tested                   6,729  (warm-up 52)
+  Period                        03 Jan 2000 to 05 Oct 2026
+  Data                          Tiingo 1d bars (cached 2h ago)
   Prices adjusted for           splits and dividends
   Costs                         6bps per side, both sides charged
   Annualised on                 252 bars/year (252 sessions, 6.5-hour equity day)
@@ -28,24 +28,24 @@
   ------------------------------------------------------------------
   RESULT
   ------------------------------------------------------------------
-  Net return                    +99.4%
-  Sharpe                        0.35
-  Sortino                       0.36
-  Max drawdown                  25.8%  (mark-to-market)
-  Max drawdown, exits only      22.3%
+  Net return                    +20.9%
+  Sharpe                        0.34
+  Sortino                       0.35
+  Max drawdown                  7.1%  (mark-to-market)
+  Max drawdown, exits only      6.1%
   Trades                        183
   Win rate                      33.3%
-  Profit factor                 1.57
-  Cost drag                     19.9% of starting equity
+  Profit factor                 1.52
+  Cost drag                     4.5% of starting equity
 
   ------------------------------------------------------------------
   CONTEXT
   ------------------------------------------------------------------
-  Average win / loss            +4 / -1
-  Best / worst trade            +25 / -7
+  Average win / loss            +1 / -0
+  Best / worst trade            +4 / -1
   Longest run of losers         14 in a row
   Time holding a position       63.2% of the bars
-  Same period, just holding     +757.7%
+  Same period, just holding     +753.0%
   (money figures in USD, on 100 starting equity)
 
   One position is still open at the end of the data. It has no exit

@@ -22,19 +22,9 @@
       {
         "id": "e1",
         "plain_english": "SPY closes above its 50-day simple moving average for 2 days in a row",
-        "left": {
-          "series": "close",
-          "params": {},
-          "offset": 0
-        },
+        "left": { "series": "close", "params": {}, "offset": 0 },
         "op": ">",
-        "right": {
-          "series": "sma",
-          "params": {
-            "period": 50
-          },
-          "offset": 0
-        },
+        "right": { "series": "sma", "params": { "period": 50 }, "offset": 0 },
         "persist_bars": 2
       }
     ],
@@ -49,19 +39,9 @@
       {
         "id": "x1",
         "plain_english": "SPY closes below its 50-day simple moving average",
-        "left": {
-          "series": "close",
-          "params": {},
-          "offset": 0
-        },
+        "left": { "series": "close", "params": {}, "offset": 0 },
         "op": "<",
-        "right": {
-          "series": "sma",
-          "params": {
-            "period": 50
-          },
-          "offset": 0
-        },
+        "right": { "series": "sma", "params": { "period": 50 }, "offset": 0 },
         "persist_bars": 1
       }
     ],
@@ -79,34 +59,17 @@
   "sizing": {
     "method": "fixed_fraction",
     "risk_per_trade_pct": null,
-    "fraction_pct": 80.0,
+    "fraction_pct": 20.0,
     "starting_equity": 100,
     "max_risk_open_pct": 1.0
   },
-  "costs": {
-    "per_side_bps": 6.0
-  },
+  "costs": { "per_side_bps": 6.0 },
   "vague_terms_resolved": [
-    {
-      "term": "Not decided yet (idea)",
-      "became": "member chose the labelled example: buy SPY when its price rises above its 50-day average"
-    },
-    {
-      "term": "rises above its 50-day average",
-      "became": "close > SMA(50) for 2 consecutive daily bars, buy at next day's open"
-    },
-    {
-      "term": "close in profit: Not decided yet",
-      "became": "close < SMA(50), sell at next day's open"
-    },
-    {
-      "term": "close at a loss: Not decided yet",
-      "became": "fixed 3% stop below entry, checked intrabar"
-    },
-    {
-      "term": "20 dollars",
-      "became": "originally 20% of a $100 imaginary account per trade; on Day 6 the member changed it to 80% per trade, keeping the 3% stop (about 2.4% of the account at risk at the stop)"
-    }
+    { "term": "Not decided yet (idea)", "became": "member chose the labelled example: buy SPY when its price rises above its 50-day average" },
+    { "term": "rises above its 50-day average", "became": "close > SMA(50) for 2 consecutive daily bars, buy at next day's open" },
+    { "term": "close in profit: Not decided yet", "became": "close < SMA(50), sell at next day's open" },
+    { "term": "close at a loss: Not decided yet", "became": "fixed 3% stop below entry, checked intrabar" },
+    { "term": "20 dollars", "became": "20% of a $100 imaginary account per trade (about 0.6% of the account at risk at the stop)" }
   ],
   "unresolved": []
 }
