@@ -1,0 +1,38 @@
+
+  ==================================================================
+    DAY 5 VERDICT   Trend Sniper
+    SPY · 1d · 6729 bars · 6.0 bps per side
+  ==================================================================
+
+     >>>  FAIL  —  1 of 3 checks did not hold  <<<
+
+  ------------------------------------------------------------------
+
+  [PASS]  Overfitting (PBO, CSCV)
+           39%
+           needs to be under 50%
+
+  [FAIL]  Deflated Sharpe
+           0.89
+           needs to be over 0.95; the search raised the bar to SR* = 0.007 per period
+
+  [PASS]  Out-of-sample (walk-forward)
+           0.59 OOS Sharpe over 5 folds
+           needs to be over 0.00; walk-forward efficiency 2.83 (OOS Sharpe over in-sample)
+
+  ------------------------------------------------------------------
+
+  Your rule was run at 6 lookback settings. The one judged above is: your settings.
+  Walk-forward: 5 folds, 5607 bars out-of-sample, anchored.
+
+  This run did not pass every check.
+  Read the failing or unavailable row before deciding what to test next.
+  Post the card with its warnings intact.
+
+  ==================================================================
+
+What broke, and what it means:
+
+- Deflated Sharpe came out at 0.89, under 0.95. Stretching your rule's lookbacks over 6 settings raised the bar to SR* = 0.0065 per period, and your result does not clear it. Priced against the size of your own search, it is not separable from luck.
+
+None of this says you are bad at this. It says this rule, on this asset, over this history, does not hold up. Those are four separate things you can change.

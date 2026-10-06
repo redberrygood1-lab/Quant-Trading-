@@ -1,0 +1,140 @@
+{
+  "schema": "ptq-academy/verdict/1",
+  "createdAt": "2026-10-06T21:13:12.437453+00:00",
+  "day": 5,
+  "strategyName": "Trend Sniper",
+  "asset": "SPY",
+  "bar": "1d",
+  "assetClass": "etf",
+  "periodsPerYear": 252.0,
+  "direction": "long",
+  "entryPlain": "Buy SPY at the next day's open once it has closed above its 50-day average two days in a row.",
+  "bars": 6729,
+  "trades": 183,
+  "configurationsTried": 6,
+  "yourConfiguration": "your settings",
+  "trialLabels": [
+    "lookbacks x0.5",
+    "lookbacks x0.75",
+    "your settings",
+    "lookbacks x1.25",
+    "lookbacks x1.5",
+    "lookbacks x2"
+  ],
+  "costBps": 6.0,
+  "headline": "FAIL",
+  "engineVerdict": "reduce",
+  "failedGates": [
+    "dsr"
+  ],
+  "gates": [
+    {
+      "key": "pbo",
+      "label": "Overfitting (PBO, CSCV)",
+      "value": "39%",
+      "detail": "needs to be under 50%",
+      "pass": true,
+      "ran": true
+    },
+    {
+      "key": "dsr",
+      "label": "Deflated Sharpe",
+      "value": "0.89",
+      "detail": "needs to be over 0.95; the search raised the bar to SR* = 0.007 per period",
+      "pass": false,
+      "ran": true,
+      "deflated": true
+    },
+    {
+      "key": "wf",
+      "label": "Out-of-sample (walk-forward)",
+      "value": "0.59 OOS Sharpe over 5 folds",
+      "detail": "needs to be over 0.00; walk-forward efficiency 2.83 (OOS Sharpe over in-sample)",
+      "pass": true,
+      "ran": true
+    }
+  ],
+  "pboPct": 38.6,
+  "deflatedSharpe": 0.89,
+  "expectedMaxSharpe": 0.0065,
+  "walkForward": {
+    "scheme": "anchored",
+    "folds": 5,
+    "run": true,
+    "oosSharpe": 0.59,
+    "oosReturnPct": 33.77,
+    "oosPeriods": 5607,
+    "isSharpe": 0.19,
+    "efficiency": 2.83,
+    "perFold": [
+      {
+        "fold": 1,
+        "isPeriods": 1122,
+        "oosPeriods": 1122,
+        "chosen": "lookbacks x0.75",
+        "isSharpe": -0.05,
+        "oosSharpe": -0.29,
+        "oosReturnPct": -2.13
+      },
+      {
+        "fold": 2,
+        "isPeriods": 2244,
+        "oosPeriods": 1122,
+        "chosen": "lookbacks x1.5",
+        "isSharpe": -0.03,
+        "oosSharpe": 0.76,
+        "oosReturnPct": 9.63
+      },
+      {
+        "fold": 3,
+        "isPeriods": 3366,
+        "oosPeriods": 1121,
+        "chosen": "lookbacks x1.5",
+        "isSharpe": 0.3,
+        "oosSharpe": 0.33,
+        "oosReturnPct": 2.67
+      },
+      {
+        "fold": 4,
+        "isPeriods": 4487,
+        "oosPeriods": 1121,
+        "chosen": "lookbacks x1.5",
+        "isSharpe": 0.3,
+        "oosSharpe": 0.69,
+        "oosReturnPct": 7.69
+      },
+      {
+        "fold": 5,
+        "isPeriods": 5608,
+        "oosPeriods": 1121,
+        "chosen": "lookbacks x2",
+        "isSharpe": 0.41,
+        "oosSharpe": 1.16,
+        "oosReturnPct": 12.76
+      }
+    ],
+    "note": "anchored walk-forward, 5 folds: best configuration chosen in-sample only, scored out-of-sample, segments stitched."
+  },
+  "methodology": {
+    "cscvSplits": 8,
+    "cscvCombinations": 70,
+    "purging": false,
+    "purgingNote": "Splits are NOT purged by trade label in this manual version. Trades that straddle an in-sample / out-of-sample boundary stay on the training side, which can flatter in-sample scores slightly.",
+    "costBps": 6.0,
+    "gridSource": "6 length-scaled variants of your own spec, simulated with day 4's backtester",
+    "day4Simulator": "/home/user/Quant-Trading-/ptqa-runtime-14758cc73bc9e20c/runtime/day-4/skill/scripts/run_backtest.py",
+    "dataSource": "Tiingo 1d bars (cached 2h ago)",
+    "specPath": "/home/user/Quant-Trading-/day-1-recording-work/strategy.json",
+    "dataNotes": [],
+    "thresholds": {
+      "pboMax": 0.5,
+      "dsrMin": 0.95,
+      "oosSharpeMin": 0.0
+    },
+    "papers": [
+      "Bailey, Borwein, Lopez de Prado & Zhu (2016) \u2014 PBO via CSCV",
+      "Bailey & Lopez de Prado (2014) \u2014 the Deflated Sharpe Ratio",
+      "Bailey & Lopez de Prado (2012) \u2014 the Probabilistic Sharpe Ratio"
+    ]
+  }
+}
