@@ -1,0 +1,40 @@
++------------------------------------------------------------------+
+| PART-TIME QUANT ACADEMY  -  WEEK ONE                             |
+| Alki  -  2026-10-08                                              |
++------------------------------------------------------------------+
+|                                                                  |
+| BUILT       Trend Sniper                                         |
+|             SPY 1d - Buy SPY at the next day's open once it has  |
+|             closed above its 50-day average two days in a row.   |
+|                                                                  |
+| TESTED      03 Jan 2000 to 06 Oct 2026 (6730 bars) - 183 trades  |
+|             costs 6 bps per side                                 |
+|             6 configurations tried                               |
+|                                                                  |
+| VERDICT     REDUCE                                               |
+|             [PASS] PBO 40%              needs under 50%          |
+|             [FAIL] Deflated Sharpe 0.89  needs over 0.95         |
+|             [PASS] Out-of-sample 0.61 Sharpe  needs over 0.00    |
+|                                                                  |
+| AGENT       ran 17 times - 2 paper fills - I stopped it on       |
+|             2026-10-06                                           |
+|                                                                  |
+| LEARNED     that buying bigger doesn't improve it                |
+|                                                                  |
++------------------------------------------------------------------+
+   Paper only. A pass is not permission to trade real money.
+
+PARTNER INTAKE  -  paste this under your post
+
+  Timezone:        < city or UTC offset >
+  I can show up:   < days + how long >
+  Week two goal:   I want to investigate whether the 3% stop is hurting the strategy
+  Verdict:         REDUCE
+  Experience:      < one line >
+
+Read from: /home/user/Quant-Trading-/day-1-recording-work
+  day 3  /home/user/Quant-Trading-/day-1-recording-work/strategy.json
+  day 4  /home/user/Quant-Trading-/day-1-recording-work/backtest-result.json
+  day 5  /home/user/Quant-Trading-/day-1-recording-work/verdict.json
+  day 6  /home/user/Quant-Trading-/day-1-recording-work/run-state.json
+  day 6  /home/user/Quant-Trading-/day-1-recording-work/run-log.jsonl

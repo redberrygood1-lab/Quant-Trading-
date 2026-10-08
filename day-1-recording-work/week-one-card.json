@@ -1,0 +1,62 @@
+{
+  "schema": "ptq-academy/week-one-card/1",
+  "generatedAt": "2026-10-08T01:58:45",
+  "workspace": "/home/user/Quant-Trading-/day-1-recording-work",
+  "sources": {
+    "3": "/home/user/Quant-Trading-/day-1-recording-work/strategy.json",
+    "4": "/home/user/Quant-Trading-/day-1-recording-work/backtest-result.json",
+    "5": "/home/user/Quant-Trading-/day-1-recording-work/verdict.json",
+    "6": "/home/user/Quant-Trading-/day-1-recording-work/run-state.json"
+  },
+  "journalSource": "/home/user/Quant-Trading-/day-1-recording-work/run-log.jsonl",
+  "missingDays": [],
+  "unboundDays": [],
+  "strategy": "Trend Sniper",
+  "asset": "SPY 1d",
+  "rule": "Buy SPY at the next day's open once it has closed above its 50-day average two days in a row.",
+  "sourceRule": "Not decided yet",
+  "vagueTermsResolved": 5,
+  "period": "03 Jan 2000 to 06 Oct 2026 (6730 bars)",
+  "trades": "183",
+  "costs": "6 bps per side",
+  "configurationsTried": "6",
+  "verdict": "REDUCE",
+  "gates": [
+    {
+      "label": "PBO",
+      "value": "40%",
+      "detail": "needs under 50%",
+      "pass": true,
+      "ran": true
+    },
+    {
+      "label": "Deflated Sharpe",
+      "value": "0.89",
+      "detail": "needs over 0.95",
+      "pass": false,
+      "ran": true
+    },
+    {
+      "label": "Out-of-sample",
+      "value": "0.61 Sharpe",
+      "detail": "needs over 0.00",
+      "pass": true,
+      "ran": true
+    }
+  ],
+  "pbo": "40%",
+  "deflatedSharpe": "0.89",
+  "outOfSample": "0.61 Sharpe over 5 folds",
+  "runs": "17",
+  "paperFills": "2",
+  "stoppedByMember": true,
+  "stoppedAt": "2026-10-06",
+  "learned": "that buying bigger doesn't improve it",
+  "partner": {
+    "timezone": null,
+    "availability": null,
+    "weekTwoGoal": "I want to investigate whether the 3% stop is hurting the strategy",
+    "verdict": "REDUCE",
+    "experience": null
+  }
+}
